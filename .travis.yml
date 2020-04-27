@@ -29,6 +29,10 @@ script:
 
   - >
     docker exec --tty "$(cat ${container_id})" env TERM=xterm
+    ansible-galaxy install geerlingguy.java
+
+  - >
+    docker exec --tty "$(cat ${container_id})" env TERM=xterm
     ansible-playbook /etc/ansible/roles/ansible-ci/tests/test.yaml
 
 # Run the role/playbook again, checking to make sure it's idempotent.
