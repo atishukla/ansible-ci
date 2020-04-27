@@ -24,8 +24,8 @@ script:
   - 'docker run --detach --volume="${PWD}":/etc/ansible/roles/ansible-ci:ro ${run_opts} geerlingguy/docker-${distro}-ansible:latest "${init}" > "${container_id}"'
 
   - >
-  docker exec --tty "$(cat ${container_id})" env TERM=xterm
-  ansible-galaxy install geerlingguy.java
+    docker exec --tty "$(cat ${container_id})" env TERM=xterm
+    ansible-galaxy install geerlingguy.java
 
   - >
     docker exec --tty "$(cat ${container_id})" env TERM=xterm
